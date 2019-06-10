@@ -11,6 +11,7 @@
 <body>
 @include('index.layouts._header')
 <div class="container">
+    @include('index.shared._messages')
 @yield('content')
 @include('index.layouts._footer')
 </div>
