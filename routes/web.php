@@ -20,3 +20,6 @@ Route::get('/about', 'Index\StaticPagesController@about')->name('about');//关�
 Route::get('/signup','Index\UsersController@create')->name('signup');//用户登录
 Route::post('/store','Index\UsersController@store')->name('store');//用户注册
 Route::resource('users', 'Index\UsersController');//用户信息
+Route::get('/login', 'Index\LoginController@create')->name('login');//用户登录
+Route::post('/login', 'Index\LoginController@store')->name('login');//用户登录
+Route::delete('/logout', 'Index\LoginController@logout')->name('logout');//用户退出

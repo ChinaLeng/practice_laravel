@@ -29,11 +29,13 @@
                         <label for="password_confirmation">确认密码：</label>
                         <input type="password" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
                     </div>
-                    <div>
+{{--                    <div>
                         <button type="submit" class="btn btn-primary">注册</button>
                         <span class="text-muted font-weight-light" style="font-size: 0.8rem;vertical-align: bottom;">已有账号?<a href="" class="text-muted" style="vertical-align: bottom;">直接登录</a></span>
-                    </div>
-
+                    </div>--}}
+                    <button type="submit" class="btn btn-primary">注册</button>
+                    <hr>
+                    <p>已有账号？<a href="{{ route('login') }}">直接登录！</a></p>
                 </form>
             </div>
         </div>
