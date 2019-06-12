@@ -26,7 +26,13 @@ class UsersController extends Controller
         return view('index.users.show',compact('user'));
     }
 
-    public function store(Request $request){
+    /**
+     * 用户注册
+     * @param Request $request
+     * @return mixed
+     */
+    public function store(Request $request)
+    {
         $this->validate($request, [
             'name' => 'required|max:50',
             'email' => 'required|email|unique:users|max:255',
@@ -38,8 +44,35 @@ class UsersController extends Controller
             'password' => bcrypt($request->password)
         ]);
         Auth::login($user);
-        session()->flash('success','欢迎您,开启您的全新之旅吧');
-        return redirect()->route('users.show',[$user]);
+        session()->flash('success', '欢迎您,开启您的全新之旅吧');
+        return redirect()->route('users.show', [$user]);
+    }
+
+    public function edit(User $user)
+    {
+        return view('index.users.edit', compact('user'));
+    }
+
+    /**
+     * 用户更新资料
+     * @param User $user
+     * @param Request $request
+     * @return mixed
+     */
+    public function update(User $user, Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'password' => 'nullable|confirmed|min:6'
+        ]);
+        $data = [];
+        $data['name'] = $request->name;
+        if ($request->password) {
+            $data['password'] = bcrypt($request->password);
+        }
+        $user->update($data);
+        session()->flash('success','个人资料修改成功');
+        return redirect()->route('users.show', $user->id);
     }
 
 }
