@@ -14,7 +14,7 @@
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::get('/', 'Index\StaticPagesController@home');//首页
+Route::get('/', 'Index\StaticPagesController@home')->name('home');//首页
 Route::get('/help', 'Index\StaticPagesController@help')->name('help');//帮助
 Route::get('/about', 'Index\StaticPagesController@about')->name('about');//关于我们
 Route::get('/signup','Index\UsersController@create')->name('signup');//用户登录
