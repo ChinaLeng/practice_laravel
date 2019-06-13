@@ -12,15 +12,25 @@ class UsersController extends Controller
     public function __construct()
     {
         $this->middleware('auth', [
-            'except' => ['show', 'create', 'store']
+            'except' => ['create', 'store']
         ]);
+        $this->middleware('guest', [
+            'only' => ['create']
+        ]);
+    }
+
+    public function index()
+    {
+        $users = User::paginate(10);
+        return view('index.users.index', compact('users'));
     }
 
     /**
      * 用户注册
      * @return mixed
      */
-    public function create(){
+    public function create()
+    {
         return view('index.users.create');
     }
 
@@ -29,8 +39,10 @@ class UsersController extends Controller
      * @param User $user
      * @return mixed
      */
-    public function show(User $user){
-        return view('index.users.show',compact('user'));
+    public function show(User $user)
+    {
+        $this->authorize('update', $user);
+        return view('index.users.show', compact('user'));
     }
 
     /**
@@ -57,6 +69,7 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+        $this->authorize('update', $user);
         return view('index.users.edit', compact('user'));
     }
 
@@ -68,6 +81,7 @@ class UsersController extends Controller
      */
     public function update(User $user, Request $request)
     {
+        $this->authorize('update', $user);
         $this->validate($request, [
             'name' => 'required|max:50',
             'password' => 'nullable|confirmed|min:6'

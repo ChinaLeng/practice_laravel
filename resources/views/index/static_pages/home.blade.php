@@ -6,7 +6,7 @@
         <p class="lead">你现在看到的就是主页</p>
         <p>这是一切开始的地方</p>
         <p>
-            <a href="{{ route('signup') }}" class="btn btn-lg btn-success">开始奇迹之旅</a>
+            <a href="{{ route('users.signup') }}" class="btn btn-lg btn-success">开始奇迹之旅</a>
         </p>
     </div>
 @stop
