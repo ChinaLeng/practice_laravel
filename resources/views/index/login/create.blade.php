@@ -8,7 +8,7 @@
             </div>
             <div class="card-body">
                 @include('index.shared._errors')
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('users.login') }}">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="email">邮箱：</label>
@@ -27,7 +27,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">登录</button>
                     <hr>
-                    <p>还没账号？<a href="{{ route('signup') }}">现在注册！</a></p>
+                    <p>还没账号？<a href="{{ route('users.signup') }}">现在注册！</a></p>
 
                 </form>
             </div>
