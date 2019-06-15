@@ -43,7 +43,8 @@ class UsersController extends Controller
     public function show(User $user)
     {
         $this->authorize('update', $user);
-        return view('index.users.show', compact('user'));
+        $statuses  = $user->statuses()->orderBy('created_at', 'desc')->paginate(10);
+        return view('index.users.show', compact('user','statuses'));
     }
 
     /**
@@ -145,5 +146,4 @@ class UsersController extends Controller
         session()->flash('success', '恭喜你，激活成功！');
         return redirect()->route('users.show', [$user]);
     }
-
 }
