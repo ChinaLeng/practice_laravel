@@ -24,3 +24,4 @@ Route::resource('users', 'Index\UsersController');//用户信息
 Route::get('/login', 'Index\LoginController@create')->name('users.login');//用户登录
 Route::post('/login', 'Index\LoginController@store')->name('users.login');//用户登录
 Route::delete('/logout', 'Index\LoginController@logout')->name('logout');//用户退出
+Route::get('/signup/confirm/{token}','Index\UsersController@confirmEmail')->name('users.confirmEmail');//用户注册

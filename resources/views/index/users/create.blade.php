@@ -35,7 +35,7 @@
                     </div>--}}
                     <button type="submit" class="btn btn-primary">注册</button>
                     <hr>
-                    <p>已有账号？<a href="{{ route('login') }}">直接登录！</a></p>
+                    <p>已有账号？<a href="{{ route('users.login') }}">直接登录！</a></p>
                 </form>
             </div>
         </div>
