@@ -15,6 +15,9 @@
                 <section class="user_info">
                     @include('index.users.user_info', ['user' => Auth::user()])
                 </section>
+                <section class="stats mt-2">
+                    @include('index.shared._stats', ['user' => Auth::user()])
+                </section>
             </aside>
         </div>
     @else
