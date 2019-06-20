@@ -8,6 +8,9 @@
                     <section class="user_info">
                         @include('index.users.user_info', ['user' => $user])
                     </section>
+                        @if (Auth::check())
+                          @include('index.users.follow_form')
+                        @endif
                     <section class="stats mt-2">
                         @include('index.shared._stats', ['user' => $user])
                     </section>

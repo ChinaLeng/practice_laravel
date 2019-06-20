@@ -42,7 +42,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        $this->authorize('update', $user);
+        //$this->authorize('update', $user);
         $statuses  = $user->statuses()->orderBy('created_at', 'desc')->paginate(10);
         return view('index.users.show', compact('user','statuses'));
     }
@@ -145,5 +145,27 @@ class UsersController extends Controller
         Auth::login($user);
         session()->flash('success', '恭喜你，激活成功！');
         return redirect()->route('users.show', [$user]);
+    }
+     /**
+     * 关注的人
+     * @param User $user
+     * @return mixed
+     */
+    public function followings(User $user)
+    {
+        $users = $user->followings()->paginate(30);
+        $title = $user->name.'关注的人';
+        return view('index.users.show_follow',compact('users','title'));
+    }
+     /**
+     * 展示粉丝
+     * @param User $user
+     * @return mixed
+     */
+    public function followers(User $user)
+    {
+        $users = $user->followers()->paginate(30);
+        $title = $user->name . '的粉丝';
+        return view('index.users.show_follow', compact('users', 'title'));
     }
 }
