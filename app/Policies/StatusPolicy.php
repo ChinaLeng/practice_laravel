@@ -19,9 +19,14 @@ class StatusPolicy
     {
         //
     }
+
     public function destroy(User $user, Status $status)
     {
         return $user->id === $status->user_id;
+    }
+    public function staticu(User $user,Status $staticu)
+    {
+        return $staticu->user_id !== $user->id;
     }
 
 }

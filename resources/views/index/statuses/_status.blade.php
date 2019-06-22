@@ -3,7 +3,12 @@
         <img src="{{ $user->gravatar() }}" alt="{{ $user->name }}" class="mr-3 gravatar"/>
     </a>
     <div class="media-body">
-        <h5 class="mt-0 mb-1">{{ $user->name }} <small> / {{ $status->created_at->diffForHumans() }}</small></h5>
+        <h5 class="mt-0 mb-1">{{ $user->name }}
+            @can('staticu',$status)
+                <span class="lead list-group-item-action">你关注的人</span>
+            @endcan
+            <small> / {{ $status->created_at->diffForHumans() }}</small>
+        </h5>
         {{ $status->content }}
     </div>
     @can('destroy', $status)
