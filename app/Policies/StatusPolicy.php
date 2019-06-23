@@ -26,7 +26,8 @@ class StatusPolicy
     }
     public function staticu(User $user,Status $staticu)
     {
-        return $staticu->user_id !== $user->id;
+        $user_ids = $user->followings->pluck('id')->toArray();
+        return $staticu->user_id !== $user->id && in_array($staticu->user_id,$user_ids);
     }
 
 }

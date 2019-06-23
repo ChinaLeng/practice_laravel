@@ -5,7 +5,7 @@
     <div class="media-body">
         <h5 class="mt-0 mb-1">{{ $user->name }}
             @can('staticu',$status)
-                <span class="lead list-group-item-action">你关注的人</span>
+                <span class="lead" style="background-color:#00BFFF;display: inline;padding: .2em .6em .3em;font-size: 50%;font-weight: 700;line-height: 1;color: #fff;text-align: center;white-space: nowrap;vertical-align: baseline;border-radius: .25em;">关注的人</span>
             @endcan
             <small> / {{ $status->created_at->diffForHumans() }}</small>
         </h5>

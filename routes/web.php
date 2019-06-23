@@ -28,5 +28,5 @@ Route::get('/signup/confirm/{token}','Index\UsersController@confirmEmail')->name
 Route::resource('/statuses','Index\StatusesController', ['only' => ['store', 'destroy']]);//文章创建和删除
 Route::get('/users/{user}/followings','Index\UsersController@followings')->name('users.followings');//关注的人
 Route::get('/users/{user}/followers','Index\UsersController@followers')->name('users.followers');//粉丝
-Route::post('/users/followers/{user}', 'FollowersController@store')->name('followers.store');//关注用户
-Route::delete('/users/followers/{user}', 'FollowersController@destroy')->name('followers.destroy');//取消关注
+Route::post('/users/followers/{user}', 'Index\FollowersController@store')->name('followers.store');//关注用户
+Route::delete('/users/followers/{user}', 'Index\FollowersController@destroy')->name('followers.destroy');//取消关注
