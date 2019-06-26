@@ -40,3 +40,19 @@ MAIL_ENCRYPTION=null
 
 
 ## 最终效果
+![](https://github.com/ChinaLeng/practice_laravel/raw/master/public/images/1561528773(1).jpg)  
+
+
+![](https://github.com/ChinaLeng/practice_laravel/raw/master/public/images/1561528824(1).jpg)
+
+
+![](https://github.com/ChinaLeng/practice_laravel/raw/master/public/images/1561528858(1).png)
+
+
+![](https://github.com/ChinaLeng/practice_laravel/raw/master/public/images/1561528872(1).png)
+
+
+![](https://github.com/ChinaLeng/practice_laravel/raw/master/public/images/1561528895(1).png)
+
+
+![](https://github.com/ChinaLeng/practice_laravel/raw/master/public/images/1561528912(1).png)
